@@ -6,4 +6,3 @@ Please feel free to look around.<br>
 ## Contributers
 * James Balajan
 * Rishabh Singh
-* Dibaloak Chowdhury
