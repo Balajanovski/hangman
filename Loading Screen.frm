@@ -16,6 +16,48 @@ Begin VB.Form LoadingForm
       Left            =   12360
       Top             =   120
    End
+   Begin VB.Label Title 
+      Alignment       =   2  'Center
+      BackColor       =   &H00000000&
+      Caption         =   "HANGMAN"
+      BeginProperty Font 
+         Name            =   "Clarendon Lt BT"
+         Size            =   48
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FFFFFF&
+      Height          =   1095
+      Left            =   6840
+      TabIndex        =   3
+      Top             =   2160
+      Visible         =   0   'False
+      Width           =   5295
+   End
+   Begin VB.Label PlayButton 
+      Alignment       =   2  'Center
+      BackColor       =   &H00000000&
+      Caption         =   "PLAY"
+      BeginProperty Font 
+         Name            =   "Clarendon BT"
+         Size            =   27.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FFFFFF&
+      Height          =   735
+      Left            =   7920
+      TabIndex        =   2
+      Top             =   5160
+      Visible         =   0   'False
+      Width           =   3135
+   End
    Begin VB.Shape LoadingBar 
       BackColor       =   &H000000FF&
       BackStyle       =   1  'Opaque
@@ -152,27 +194,50 @@ Dim TimerIndex As Integer
 Dim Index As Integer
 
 Private Sub Form_Load()
+    
+    ' Initialise various properties
     Presents.Top = -500
     TimerIndex = 0
     Index = 0
+    PlayButton.Enabled = False
+    
 End Sub
 
 
 Private Sub Timer1_Timer()
+
+    ' Move the presents label down
     If Presents.Top < 1320 Then
         Presents.Top = Presents.Top + 15
     End If
     
+    ' Create an index from the timer's iterations for the loading bar
     Index = TimerIndex \ 35 Mod 6
-    If Index >= 6 Then
-        TimerIndex = 0
-        For i = 0 To 5
-            LoadingBar(i).Visible = False
-        Next
+    
+    If Index >= 5 Then
+        ' Stop iterating the timer
+        Timer1.Enabled = False
+        
+        ' Make the play button usable and visible
+        PlayButton.Enabled = True
+        PlayButton.Visible = True
+        
+        ' Set the loading text to say Press to Play!
+        Loading.Caption = "Press to Play!"
+        Loading.Top = Loading.Top - 300
+        Loading.Height = Loading.Height + 300
+        
+        ' Set the title to be visible
+        Title.Visible = True
+        
+        ' Change title bar of window
+        LoadingForm.Caption = "Hangman - By James, Rishabh & Dibaloak"
     End If
+    
+    ' Turn on segments of the loading bar
     LoadingBar(Index).Visible = True
     
+    ' Increment
     TimerIndex = TimerIndex + 1
-    
-    
+   
 End Sub
