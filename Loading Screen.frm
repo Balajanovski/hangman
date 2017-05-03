@@ -1,12 +1,15 @@
 VERSION 5.00
 Begin VB.Form LoadingForm 
    BackColor       =   &H00000000&
+   BorderStyle     =   1  'Fixed Single
    Caption         =   "Loading..."
    ClientHeight    =   6555
-   ClientLeft      =   120
-   ClientTop       =   450
+   ClientLeft      =   45
+   ClientTop       =   375
    ClientWidth     =   13200
    LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
    Picture         =   "Loading Screen.frx":0000
    ScaleHeight     =   6555
    ScaleWidth      =   13200
