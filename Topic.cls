@@ -34,7 +34,6 @@ Public Sub Init(ByRef Words() As String)
         Dim Length As Integer
         Length = Len(Words(i))
         
-        
         If Length >= 7 Then
             DifficultWords(DifficultWordsIndex) = Words(i)
             DifficultWordsIndex = DifficultWordsIndex + 1
@@ -57,17 +56,73 @@ Public Function ReturnWords(ByVal WordDifficulty As Difficulty) As String
         Call Randomize
         RecentlyPickedWordsIndex = 0
     Else
+        Dim FoundWord As Boolean
+        FoundWord = False
         If WordDifficulty = Easy Then
-            PickedWord = EasyWords(Rnd())
+        
+            ' Loop until a word is found that was not recently picked
+            While Not FoundWord
+                PickedWord = EasyWords(Rnd())
+                
+                Dim WordInRecent As Boolean
+                WordInRecent = False
+                
+                For i = 0 To 4
+                    If RecentlyPickedWords(i) = PickedWord Then
+                        WordInRecent = True
+                    End If
+                Next
+                
+                If Not WordInRecent Then
+                    FoundWord = True
+                End If
+            Loop
             RecentlyPickedWords(RecentlyPickedWordsIndex) = PickedWord
+            
         ElseIf WordDifficulty = Normal Then
-            PickedWord = NormalWords(Rnd())
+        
+            ' Loop until a word is found that was not recently picked
+            While Not FoundWord
+                PickedWord = NormalWords(Rnd())
+                
+                Dim WordInRecent As Boolean
+                WordInRecent = False
+                
+                For i = 0 To 4
+                    If RecentlyPickedWords(i) = PickedWord Then
+                        WordInRecent = True
+                    End If
+                Next
+                
+                If Not WordInRecent Then
+                    FoundWord = True
+                End If
+            Loop
             RecentlyPickedWords(RecentlyPickedWordsIndex) = PickedWord
+            
         ElseIf WordDifficulty = Difficult Then
-            PickedWord = DifficultWords(Rnd())
+        
+            ' Loop until a word is found that was not recently picked
+            While Not FoundWord
+                PickedWord = DifficultWords(Rnd())
+                
+                Dim WordInRecent As Boolean
+                WordInRecent = False
+                
+                For i = 0 To 4
+                    If RecentlyPickedWords(i) = PickedWord Then
+                        WordInRecent = True
+                    End If
+                Next
+                
+                If Not WordInRecent Then
+                    FoundWord = True
+                End If
+            Loop
             RecentlyPickedWords(RecentlyPickedWordsIndex) = PickedWord
         End If
         RecentlyPickedWordsIndex = RecentlyPickedWordsIndex + 1
+        
     End If
     
     ReturnWords = PickedWord
