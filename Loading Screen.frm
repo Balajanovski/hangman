@@ -13,7 +13,7 @@ Begin VB.Form LoadingForm
    Picture         =   "Loading Screen.frx":0000
    ScaleHeight     =   6555
    ScaleWidth      =   13200
-   StartUpPosition =   3  'Windows Default
+   StartUpPosition =   2  'CenterScreen
    Begin VB.Timer Timer1 
       Interval        =   5
       Left            =   12360
@@ -204,8 +204,15 @@ Private Sub Form_Load()
     Index = 0
     PlayButton.Enabled = False
     
+    ' Init game
+    Call Init
+    
 End Sub
 
+
+Private Sub PlayButton_Click()
+    Call SwapWindow(LoadingForm, PickScreen)
+End Sub
 
 Private Sub Timer1_Timer()
 

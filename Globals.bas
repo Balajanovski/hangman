@@ -28,9 +28,17 @@ Public GameState As GameStateType
 Public Topic As TopicType
 
 
-' RUN THIS
+' RUN THIS whenever a new game is begun
 Public Sub Init()
     GameState = Title
+End Sub
+
+' Loads Form2 and unloads Form1
+Public Sub SwapWindow(ByRef Form1 As Form, ByRef Form2 As Form)
+    Load Form2
+    Form1.Hide
+    Form2.Show
+    Unload Form1
 End Sub
 
 

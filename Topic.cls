@@ -16,21 +16,24 @@ Private EasyWords(4) As String
 Private NormalWords(4) As String
 Private DifficultWords(4) As String
 
-Private EasyWordsIndex As Integer
-Private NormalWordsIndex As Integer
-Private DifficultWordsIndex As Integer
-
 Private RecentlyPickedWord(4) As String
 Private RecentlyPickedWordIndex As Integer
 
 
+' Put an array of 12 in, any more are just ignored
 Public Sub Init(ByRef Words() As String)
+
+    Dim EasyWordsIndex As Integer
+    Dim NormalWordsIndex As Integer
+    Dim DifficultWordsIndex As Integer
+    
     EasyWordsIndex = 0
     NormalWordsIndex = 0
     DifficultWordsIndex = 0
     RecentlyPickedWordIndex = 0
-
-    For i = 0 To UBound(Words)
+    
+    ' Sort the words based on their lengths into their respective categories
+    For i = 0 To 11
         Dim Length As Integer
         Length = Len(Words(i))
         
