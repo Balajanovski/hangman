@@ -204,9 +204,6 @@ Private Sub Form_Load()
     Index = 0
     PlayButton.Enabled = False
     
-    ' Init game
-    Call Init
-    
 End Sub
 
 

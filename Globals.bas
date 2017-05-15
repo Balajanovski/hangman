@@ -1,21 +1,13 @@
 Attribute VB_Name = "Module1"
-' Enum to represent the game state
-Enum GameStateType
-    Title
-    Normal
-    Difficult
-    EndScreen
-End Enum
-
 ' Pass into topic class to get word of that difficulty
-Enum Difficulty
+Enum DifficultyEnum
     Easy
     Normal
-    Difficult
+    Hard
 End Enum
 
 ' Enum to represent which topic
-Enum TopicType
+Enum TopicEnum
     None
     CS
     Math
@@ -24,14 +16,12 @@ End Enum
 
 
 ' Global variables which represent the game state and topic respectively
-Public GameState As GameStateType
-Public Topic As TopicType
+Public DifficultyState As DifficultyEnum
+Public TopicState As TopicEnum
 
+' Class which handles word management
+Public Topic As Topic
 
-' RUN THIS whenever a new game is begun
-Public Sub Init()
-    GameState = Title
-End Sub
 
 ' Loads Form2 and unloads Form1
 Public Sub SwapWindow(ByRef Form1 As Form, ByRef Form2 As Form)

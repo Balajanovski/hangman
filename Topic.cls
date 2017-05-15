@@ -52,7 +52,7 @@ Public Sub Init(ByRef Words() As String)
     
 End Sub
 
-Public Function ReturnWords(ByVal WordDifficulty As Difficulty) As String
+Public Function ReturnWords(ByVal WordDifficulty As DifficultyEnum) As String
     Dim PickedWord As String
     
     If RecentlyPickedWordsIndex >= 3 Then
