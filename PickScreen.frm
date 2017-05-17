@@ -10,11 +10,35 @@ Begin VB.Form PickScreen
    ScaleHeight     =   6405
    ScaleWidth      =   13050
    StartUpPosition =   2  'CenterScreen
+   Begin VB.PictureBox NotTimedButton 
+      Enabled         =   0   'False
+      Height          =   1800
+      Left            =   6960
+      Picture         =   "PickScreen.frx":0000
+      ScaleHeight     =   1740
+      ScaleWidth      =   1740
+      TabIndex        =   8
+      Top             =   2760
+      Visible         =   0   'False
+      Width           =   1800
+   End
+   Begin VB.PictureBox TimedButton 
+      Enabled         =   0   'False
+      Height          =   1800
+      Left            =   4200
+      Picture         =   "PickScreen.frx":23A9
+      ScaleHeight     =   1740
+      ScaleWidth      =   1740
+      TabIndex        =   7
+      Top             =   2760
+      Visible         =   0   'False
+      Width           =   1800
+   End
    Begin VB.PictureBox HardButton 
       Enabled         =   0   'False
       Height          =   1800
       Left            =   8280
-      Picture         =   "PickScreen.frx":0000
+      Picture         =   "PickScreen.frx":3E83
       ScaleHeight     =   1740
       ScaleWidth      =   1740
       TabIndex        =   6
@@ -26,7 +50,7 @@ Begin VB.Form PickScreen
       Enabled         =   0   'False
       Height          =   1800
       Left            =   5640
-      Picture         =   "PickScreen.frx":1F40
+      Picture         =   "PickScreen.frx":5DC3
       ScaleHeight     =   1740
       ScaleWidth      =   1740
       TabIndex        =   5
@@ -38,7 +62,7 @@ Begin VB.Form PickScreen
       Enabled         =   0   'False
       Height          =   1800
       Left            =   2760
-      Picture         =   "PickScreen.frx":36C5
+      Picture         =   "PickScreen.frx":7548
       ScaleHeight     =   1740
       ScaleWidth      =   1740
       TabIndex        =   4
@@ -49,7 +73,7 @@ Begin VB.Form PickScreen
    Begin VB.PictureBox ComputerScienceButton 
       Height          =   1800
       Left            =   8280
-      Picture         =   "PickScreen.frx":4FBF
+      Picture         =   "PickScreen.frx":8E42
       ScaleHeight     =   1740
       ScaleWidth      =   1740
       TabIndex        =   3
@@ -59,7 +83,7 @@ Begin VB.Form PickScreen
    Begin VB.PictureBox MathButton 
       Height          =   1800
       Left            =   2760
-      Picture         =   "PickScreen.frx":73D8
+      Picture         =   "PickScreen.frx":B25B
       ScaleHeight     =   1740
       ScaleWidth      =   1740
       TabIndex        =   2
@@ -69,7 +93,7 @@ Begin VB.Form PickScreen
    Begin VB.PictureBox ChemistryButton 
       Height          =   1800
       Left            =   5640
-      Picture         =   "PickScreen.frx":8A8A
+      Picture         =   "PickScreen.frx":C90D
       ScaleHeight     =   1740
       ScaleWidth      =   1740
       TabIndex        =   1
@@ -151,3 +175,4 @@ End Sub
 Private Sub NormalButton_Click()
     DifficultyState = Normal
 End Sub
+

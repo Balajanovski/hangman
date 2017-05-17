@@ -19,8 +19,10 @@ End Enum
 Public DifficultyState As DifficultyEnum
 Public TopicState As TopicEnum
 
+
 ' Class which handles word management
 Public Topic As Topic
+
 
 
 ' Loads Form2 and unloads Form1
