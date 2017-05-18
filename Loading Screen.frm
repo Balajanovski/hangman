@@ -10,21 +10,27 @@ Begin VB.Form LoadingForm
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   Picture         =   "Loading Screen.frx":0000
    ScaleHeight     =   6555
    ScaleWidth      =   13200
-   StartUpPosition =   2  'CenterScreen
+   StartUpPosition =   3  'Windows Default
    Begin VB.Timer Timer1 
       Interval        =   5
       Left            =   12360
       Top             =   120
+   End
+   Begin VB.Image Image1 
+      Height          =   6360
+      Left            =   240
+      Picture         =   "Loading Screen.frx":0000
+      Top             =   0
+      Width           =   6060
    End
    Begin VB.Label Title 
       Alignment       =   2  'Center
       BackColor       =   &H00000000&
       Caption         =   "HANGMAN"
       BeginProperty Font 
-         Name            =   "Clarendon Lt BT"
+         Name            =   "Arial"
          Size            =   48
          Charset         =   0
          Weight          =   400
@@ -45,7 +51,7 @@ Begin VB.Form LoadingForm
       BackColor       =   &H00000000&
       Caption         =   "PLAY"
       BeginProperty Font 
-         Name            =   "Clarendon BT"
+         Name            =   "Arial"
          Size            =   27.75
          Charset         =   0
          Weight          =   400
@@ -144,7 +150,7 @@ Begin VB.Form LoadingForm
       BackColor       =   &H00000000&
       Caption         =   "PRESENTS"
       BeginProperty Font 
-         Name            =   "Clarendon Blk BT"
+         Name            =   "Arial"
          Size            =   36
          Charset         =   0
          Weight          =   400
@@ -172,7 +178,7 @@ Begin VB.Form LoadingForm
       BackColor       =   &H00000000&
       Caption         =   "Loading..."
       BeginProperty Font 
-         Name            =   "Clarendon Blk BT"
+         Name            =   "Arial"
          Size            =   15.75
          Charset         =   0
          Weight          =   400
@@ -208,7 +214,8 @@ End Sub
 
 
 Private Sub PlayButton_Click()
-    Call SwapWindow(LoadingForm, PickScreen)
+    PickScreen.Show
+    Unload Me
 End Sub
 
 Private Sub Timer1_Timer()
